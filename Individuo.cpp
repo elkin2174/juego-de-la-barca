@@ -8,10 +8,15 @@
 */
 #include "Individuo.h"
 
-Individuo::Individuo(){};
-Individuo::Individuo(string _nombre, string _comida, char _orden ) : nombre(_nombre), comida(_comida), orden(_orden) {};
-Individuo::~Individuo(){};
-
+Individuo::Individuo()
+{
+};
+Individuo::Individuo(string _nombre, string _comida, char _orden ) : nombre(_nombre), comida(_comida), orden(_orden)
+{
+};
+Individuo::~Individuo()
+{
+};
 
 string Individuo::getNombre()
 {

@@ -2,17 +2,16 @@
   Archivo: Orilla.h
   Autor: Elkin Tovar, elkin.tovar@correounivalle.edu.co
   Fecha de creación: 21/02/2024
-  Fecha última modificación: 21/02/2024
+  Fecha última modificación: 23/02/2024
   version: 0.1
   Licencia: GNU-GPL
 */
 /**
   CLASE: Orilla
-  INTENCION: TODO
+  INTENCION: Esta clase tiene la intecion moldear la dos orillas planteadas en el juego.
   RELACIONES:
   -es un Lugar
-  
-  -conoce  Barca
+  -conoce Barca, mediante los punteros de veciono y vecinoAlternativo.
  
 */
 

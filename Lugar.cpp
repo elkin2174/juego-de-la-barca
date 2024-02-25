@@ -2,7 +2,7 @@
   Archivo: Lugar.cpp
   Autor: Elkin Tovar, elkin.tovar@correounivalle.edu.co
   Fecha de creación: 21/02/2024
-  Fecha última modificación: 23/02/2024
+  Fecha última modificación: 24/02/2024
   version: 0.1
   Licencia: GNU-GPL
 */
@@ -18,7 +18,6 @@ Lugar::Lugar(string _nombre) : nombre(_nombre)
 };
 Lugar::~Lugar()
 {
-
   for(Individuo *individuo : individuos)
   {
     delete individuo;
@@ -59,7 +58,6 @@ bool Lugar::buscarRobot()
     if (individuo->getNombre() == "Robot")
     {
       return true;
-      break;
     }
   }
   return false;
@@ -77,7 +75,6 @@ bool Lugar::PuedeComer()
     {
       if (depredador->getComida() == presa->getNombre())
       {
-        cout << " !El " + depredador->getNombre() + " se comio a " + presa->getNombre()+ "!"<<endl<<endl;
         return true;
       }  
     }
@@ -85,23 +82,19 @@ bool Lugar::PuedeComer()
   return false;
   
 }
-bool Lugar::seAhogo(Individuo *individuo)
+
+bool Lugar::seAhogo()
 {
   if (getVecino() == nullptr)
   {
-    cout << " !" + individuo->getNombre() + " se cayó al agua!" <<endl<<endl;
     return true;
-  }else
-    return false;
+  }
+  return false;
 }
+
 void Lugar::addIndividuos(Individuo *_individuo)
 {
   individuos.push_back(_individuo);
-}
-
-int Lugar::getTamanio()
-{
-  return individuos.size();
 }
 
 vector<Individuo*> Lugar::vectorIndividuos()
@@ -112,10 +105,10 @@ vector<Individuo*> Lugar::vectorIndividuos()
 int Lugar::retornarIndice(char orden)
 {
   for (int i = 0; i < individuos.size(); i++)
-    {
-      if ( orden == individuos[i]->getOrden())
-        return i;
-    }
+  {
+    if ( orden == individuos[i]->getOrden())
+      return i;
+  }
   return 99;
 }
 
@@ -125,8 +118,7 @@ void Lugar::eliminarIndividuo(int indice)
 }
 
 bool Lugar::moverIndividuo(char orden)
-{  
-  
+{   
   int indice = this->retornarIndice(orden);
   if(indice != 99)
   {
@@ -135,7 +127,6 @@ bool Lugar::moverIndividuo(char orden)
     return true;
   }
   return false;
-  
 }
 
 bool Lugar::verificarIndividuo(char orden)

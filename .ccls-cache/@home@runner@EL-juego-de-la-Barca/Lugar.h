@@ -2,16 +2,15 @@
   Archivo: Lugar.h
   Autor: Elkin Tovar, elkin.tovar@correounivalle.edu.co
   Fecha de creación: 21/02/2024
-  Fecha última modificación: 23/02/2024
+  Fecha última modificación: 24/02/2024
   version: 0.1
   Licencia: GNU-GPL
 */
 /**
   CLASE: Lugar
-  INTENCION: Esta clase moldea los lugares, y tiene la resposabilidad de decidir si el jugador perdio.
+  INTENCION: Esta clase moldea los lugares, y tiene la resposabilidad de verificar los distintos estados para decidir si el jugador perdio.
   RELACIONES:
-  -conoce Individuos
-  -conoce Lugar
+  -conoce Individuo
 */
 
 #ifndef LUGAR_H
@@ -24,7 +23,7 @@
 using namespace std;
 class Lugar
 {
-  protected:
+  private:
     string nombre;
     Lugar *vecino;
     Lugar *vecinoAlternanitivo;
@@ -56,7 +55,7 @@ class Lugar
     void setVecinoAlternativo(Lugar *_vecino);
 
     /*
-      Estos son los metodos de la clase distintos a los Getters y Setters, tanto metodos virtuales, etc.
+      Estos son los metodos de la clase distintos a los Getters y Setters, metodos virtuales, etc.
     */
     /*
       Verifica si el Robot se encuentra en el lugar.
@@ -71,26 +70,17 @@ class Lugar
     /*
       Verifica si al mover un individuo se cae a el agua o no
     */
-    bool seAhogo(Individuo *individuo);
+    bool seAhogo();
 
     /* 
       Agrega individuos a el vector de individuos
     */
     void addIndividuos(Individuo *_individuo);
-    /*
-      Retorna el tamañno del arreglo 
-    */
-    int getTamanio();
 
     /*
-      Metodo virtual para verificar si esta llena la barca en la clase hija
+      Metodo virtual para verificar si el lugar se encuentra lleno.
     */
     virtual bool estaLlena() = 0;
-
-    /*
-      Metodo virtual para ver si el Lugar se puede mover, solo es valido para la clase hija Barca
-    */
-    virtual bool sePuedeMover() = 0;
 
     /*
       Retorna el vector de individuos
@@ -98,17 +88,20 @@ class Lugar
     vector<Individuo*> vectorIndividuos();
 
     /*
-      Retorna el indice al recibir una orden
+      Retorna el indice del individuo al recibir la orden del individuo.
     */
     int retornarIndice(char orden);
+
     /*
-      Borra los individuos que han sido movidos
+      Borra los individuos que han sido movidos a otras instacias de la clase lugar
     */
     void eliminarIndividuo(int indice);
+
     /*
-      Mueve el individuo al Vecino
+      Mueve el individuo al Vecino y retorna true si este es movido
     */
     bool moverIndividuo(char orden);
+
     /*
       Verifica si el individuo esta en el lugar;
     */

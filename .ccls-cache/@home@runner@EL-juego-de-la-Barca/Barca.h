@@ -8,11 +8,10 @@
 */
 /**
   CLASE: Barca
-  INTENCION: TODO
+  INTENCION: Esta clase moldea la barca del juego esta envia si esta llena.
   RELACIONES:
   -es un Lugar
-  -conoce Individuo
-
+  -conoce Orilla, mediante los punteros de veciono y vecinoAlternativo.
 */
 
 #ifndef BARCA_H
@@ -34,15 +33,9 @@ class Barca : public Lugar
       Metodos de la clase.
     */
     /*
-      Retorna verdadero si la barca se encuentra llena
+      Retorna verdadero si la barca se encuentra llena, metodo abstracto heredado de la clase padre y sobre escrito.
     */
-    bool estaLlena();
-
-    /*
-      Verifica si el Robot se encuentra en la Barca, si esta retorna true en caso contrario false.
-    */
-    bool sePuedeMover();
-    
+    bool estaLlena();    
 };
 
 #else

@@ -3,7 +3,6 @@
 
 int main() 
 {
-
   Jugador *jugador = new Jugador();
   jugador->menuInicial();
   delete jugador;
